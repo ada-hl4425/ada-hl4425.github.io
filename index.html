@@ -347,17 +347,24 @@
 <body>
     <div class="container">
         <header>
+            <!-- Language Toggle -->
+            <div style="position: absolute; top: 30px; right: 30px; z-index: 100;">
+                <button id="langToggle" onclick="toggleLanguage()" style="background: var(--bg-secondary); border: 1px solid var(--border); color: var(--accent); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 0.9rem; transition: all 0.3s;">
+                    中文
+                </button>
+            </div>
+            
             <h1>Hao Liu <span style="font-size: 0.4em; color: var(--text-secondary); font-weight: 300; font-family: 'DM Mono', monospace;">/haʊ/</span></h1>
-            <div style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 20px; font-style: italic;">(pronounced "how")</div>
-            <div class="title">Environmental Data Science & Machine Learning Researcher</div>
-            <div class="affiliation">MSc Student · Imperial College London</div>
+            <div style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 20px; font-style: italic;" data-i18n="pronunciation">(pronounced "how")</div>
+            <div class="title" data-i18n="title">Environmental Data Science & Machine Learning Researcher</div>
+            <div class="affiliation" data-i18n="affiliation">MSc Student · Imperial College London</div>
         </header>
 
         <section id="interests" style="padding: 80px 0; border-bottom: 1px solid var(--border);">
-            <h2>Research Interests</h2>
+            <h2 data-i18n="sectionInterests">Research Interests</h2>
             <div style="margin-top: 40px; max-width: 900px;">
                 <p style="color: var(--text-primary); font-size: 1.05rem; line-height: 1.9; margin-bottom: 30px;">
-                    I'm fascinated by the intersection of <strong style="color: var(--accent);">physical sciences</strong>, <strong style="color: var(--accent);">computational methods</strong>, and <strong style="color: var(--accent);">machine learning</strong>. My research focuses on developing and applying computational models to understand complex environmental, chemical and physical systems.
+                    <span data-i18n="philosophy">I'm fascinated by the intersection of <strong style="color: var(--accent);">physical sciences</strong>, <strong style="color: var(--accent);">computational methods</strong>, and <strong style="color: var(--accent);">machine learning</strong>. My research focuses on developing and applying computational models to understand complex environmental, chemical and physical systems.</span>
                 </p>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
@@ -399,7 +406,7 @@
         </section>
 
         <section id="projects">
-            <h2>Research Projects</h2>
+            <h2 data-i18n="sectionProjects">Research Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <img src="yolo-detection.png" alt="YOLOv5 Safety Equipment Detection Results" style="width: 100%; height: auto; max-height: 250px; object-fit: contain; margin-bottom: 24px; border: 1px solid var(--border); background: var(--bg-primary);">
@@ -454,7 +461,7 @@
         </section>
 
         <section id="publications">
-            <h2>Publications</h2>
+            <h2 data-i18n="sectionPublications">Publications</h2>
             <div style="margin-top: 60px; max-width: 1000px;">
                 <div style="margin-bottom: 35px; padding: 30px; background: var(--bg-secondary); border-left: 4px solid var(--accent); transition: all 0.3s ease;">
                     <span style="display: inline-block; background: var(--accent-dim); color: var(--accent); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 0.05em; margin-bottom: 15px;">CONFERENCE</span>
@@ -491,7 +498,7 @@
         </section>
 
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <h2 data-i18n="sectionSkills">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Programming</h3>
@@ -531,7 +538,7 @@
         </section>
 
         <section id="activities">
-            <h2>Activities & Engagement</h2>
+            <h2 data-i18n="sectionActivities">Activities & Engagement</h2>
             <div style="margin-top: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
                 
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border); overflow: hidden; position: relative;">
@@ -638,7 +645,7 @@
         </section>
 
         <footer>
-            <p>© 2026 Hao · Designed for impact, built for curiosity</p>
+            <p data-i18n="copyright">© 2026 Hao Liu · Designed for impact, built for curiosity</p>
         </footer>
     </div>
 
@@ -664,6 +671,83 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+    </script>
+
+    <script>
+    // Complete bilingual translations
+    const translations = {
+        en: {
+            pronunciation: '(pronounced "how")',
+            title: 'Environmental Data Science & Machine Learning Researcher',
+            affiliation: 'MSc Student · Imperial College London',
+            philosophy: 'I\'m fascinated by the intersection of <strong style="color: var(--accent);">physical sciences</strong>, <strong style="color: var(--accent);">computational methods</strong>, and <strong style="color: var(--accent);">machine learning</strong>. My research focuses on developing and applying computational models to understand complex environmental, chemical and physical systems.',
+            sectionInterests: 'Research Interests',
+            sectionProjects: 'Research Projects',
+            sectionPublications: 'Publications',
+            sectionSkills: 'Technical Skills',
+            sectionActivities: 'Activities & Engagement',
+            sectionContact: 'Contact',
+            contactText: '<span data-i18n="contactText">Feel free to reach out for research collaborations, PhD opportunities, or academic discussions.</span>',
+            copyright: '© 2026 Hao Liu · Designed for impact, built for curiosity'
+        },
+        zh: {
+            pronunciation: '(发音：浩)',
+            title: '环境数据科学与机器学习研究者',
+            affiliation: '硕士研究生 · 帝国理工学院',
+            philosophy: '我对<strong style="color: var(--accent);">物理科学</strong>、<strong style="color: var(--accent);">计算方法</strong>和<strong style="color: var(--accent);">机器学习</strong>的交叉领域充满热情。我的研究专注于开发和应用计算模型，以理解复杂的环境、化学和物理系统。',
+            sectionInterests: '研究兴趣',
+            sectionProjects: '研究项目',
+            sectionPublications: '发表论文',
+            sectionSkills: '技术能力',
+            sectionActivities: '活动与参与',
+            sectionContact: '联系方式',
+            contactText: '欢迎就研究合作、博士机会或学术讨论与我联系。',
+            copyright: '© 2026 刘昊 · 为影响力而设计，为好奇心而构建'
+        }
+    };
+
+    async function detectLanguageByIP() {
+        try {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                applyLanguage(savedLang);
+                return;
+            }
+            
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            const language = (data.country_code === 'CN' || data.country_code === 'HK' || data.country_code === 'TW') ? 'zh' : 'en';
+            
+            localStorage.setItem('preferredLanguage', language);
+            applyLanguage(language);
+        } catch (error) {
+            applyLanguage('en');
+        }
+    }
+
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t[key]) {
+                element.innerHTML = t[key];
+            }
+        });
+        
+        const toggleBtn = document.getElementById('langToggle');
+        if (toggleBtn) {
+            toggleBtn.textContent = lang === 'en' ? '中文' : 'EN';
+        }
+    }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+        const newLang = currentLang === 'en' ? 'zh' : 'en';
+        localStorage.setItem('preferredLanguage', newLang);
+        applyLanguage(newLang);
+    }
+
+    detectLanguageByIP();
     </script>
 </body>
 </html>
